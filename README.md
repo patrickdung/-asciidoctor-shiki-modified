@@ -13,7 +13,7 @@ would hang when using on specific node.js application like Astro (deasync proble
 
 ## Problems
 
-1. Double <pre><code> blocks, this could be AsciiDoctor problem
+1. Double ```<pre><code>``` blocks, this could be AsciiDoctor problem
 
 First code block
 

@@ -22,7 +22,7 @@ First code block
   <code data-lang="yaml">
 ```
 
-Then it would have another <pre><code> (shiki).
+Then it would have another ```<pre><code>``` block (shiki).
 The codes from David Jencks would remove the nested block.
 
 2. This is POC. No code linting and not pushed to npmjs.

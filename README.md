@@ -28,6 +28,7 @@ The codes from David Jencks would remove the nested block.
 Dane Allen points out that it is a design feature of AsciiDoctor
 to control the code blocks that is inserted in the conversion.
 This behavior could be changed by over-ridding the 'format' class of the syntax highlighter.
+Actually David Jencks had opened [a ticket about it](https://github.com/asciidoctor/asciidoctor.js/issues/1220)
 
 2. This is POC. No code linting and not pushed to npmjs.
 

@@ -1,16 +1,33 @@
-//import type { Highlighter, ILanguageRegistration, IThemeRegistration } from 'shiki'
-import { getHighlighter } from 'shiki'
-import { runAsWorker } from 'synckit'
+import { getHighlighter } from 'shiki';
+import { runAsWorker } from 'synckit';
 
-const START_RX = /<pre class="shiki" style="background-color: #[0-9a-f]*"><code>/
-const END = '</code></pre>'
+const START_RX = /<pre class="shiki" style="background-color: #[0-9a-f]*"><code>/;
+const END = '</code></pre>';
 
-runAsWorker(async (content, lang) => {
+interface lineOptionsItem {
+  line: number;
+  classes: string[];
+}
+
+runAsWorker(async (content, lang, opts) => {
   const highlighter = await getHighlighter({'theme': 'slack-dark'});
-  let html = highlighter.codeToHtml(content,lang)
+  let lineOptionsItems: lineOptionsItem[] = [];
+  let html = '';
+  if (opts.highlight_lines) {
+    //console.log ("opts.highlight_lines: ", opts.highlight_lines)
+    opts.highlight_lines.map (lineNo => {
+      let item = { line: lineNo, classes: ['codeBlock-highlightedLine'] };
+      lineOptionsItems.push (item);
+    });
+    //console.log (lineOptionsItems);
+    html = await highlighter.codeToHtml(content, {lang, lineOptions: lineOptionsItems});
+  } else {
+    html = await highlighter.codeToHtml(content, lang);
+  }
+  lineOptionsItems=[];
   //Leaving the html default results in nested pre/code elements, which is rendered as an unattractive box around the
   //highlighted code.
-  html = html.replace(START_RX, '')
-  html = html.slice(0, -END.length)
-  return html
+  html = html.replace(START_RX, '');
+  html = html.slice(0, -END.length);
+  return html;
 });

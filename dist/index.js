@@ -36,8 +36,17 @@ var AsciidoctorShiki = {
   initialize(_name, _backend, { document: document2 }) {
     this.super();
   },
-  highlight(_node, content, lang) {
-    return syncRun(content, lang);
+  format(node, lang, opts) {
+    if (lang) {
+      return `<pre class="shiki" style="background-color: #222222;">
+        <code ${lang ? ` data-language="${lang}"` : ""}>${node.getContent()}</code></pre>`;
+    } else {
+      return `<pre class="shiki">${node.getContent()}</pre>`;
+    }
+    ;
+  },
+  highlight(node, content, lang, opts) {
+    return syncRun(content, lang, opts);
   },
   handlesHighlighting() {
     return true;

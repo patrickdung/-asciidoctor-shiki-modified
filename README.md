@@ -7,9 +7,9 @@ would hang when using on specific node.js application like Astro (deasync proble
 
 - David Jencks's extension works on Antora but it is not directly usable for Asciidoctor.
   But he pointed out that the converted code block would have nested ```<pre>/<code>``` section.
-  He also have logic to remove the nested code block.
+  He also has logic to remove the nested code block.
 
-- Refernce Anthony Fu's markdown-it-shini module on how to use the Synckit worker.
+- Reference Anthony Fu's markdown-it-shiki module on how to use the Synckit worker.
 
 ## Problems
 

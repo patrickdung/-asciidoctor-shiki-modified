@@ -11,7 +11,7 @@ interface lineOptionsItem {
 
 runAsWorker(async (content, lang, opts) => {
   //const highlighter = await getHighlighter({'theme': 'slack-dark'});
-  //const highlighter = await getHighlighter({'theme': ''});
+  const highlighter = await getHighlighter({'theme': ''});
   let lineOptionsItems: lineOptionsItem[] = [];
   let html = '';
   if (opts.highlight_lines) {
@@ -21,9 +21,9 @@ runAsWorker(async (content, lang, opts) => {
       lineOptionsItems.push (item);
     });
     //console.log (lineOptionsItems);
-    //html = await highlighter.codeToHtml(content, {lang, lineOptions: lineOptionsItems});
+    html = await highlighter.codeToHtml(content, {lang, lineOptions: lineOptionsItems});
   } else {
-    //html = await highlighter.codeToHtml(content, lang);
+    html = await highlighter.codeToHtml(content, lang);
   }
   lineOptionsItems=[];
   //Leaving the html default results in nested pre/code elements, which is rendered as an unattractive box around the

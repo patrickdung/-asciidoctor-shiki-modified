@@ -15,7 +15,7 @@ export const AsciidoctorShiki: Asciidoctor.SyntaxHighlighterFunctions = {
       //  <code ${lang ? ` data-language="${lang}"` : ''}>${node.getContent()}</code></pre>`
       return `<pre>${node.getContent()}</pre>`
     } else {
-      return `<pre>${node.getContent()}</pre>`
+      return ${node.getContent()}
     };
   },
   highlight(node, content, lang, opts) {

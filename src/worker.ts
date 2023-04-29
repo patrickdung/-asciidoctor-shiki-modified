@@ -2,7 +2,7 @@ import { getHighlighter } from 'shiki';
 import { runAsWorker } from 'synckit';
 
 //const START_RX = /<pre id="*" class="shiki.*" style="background-color: #[0-9a-f]*".*><code>/;
-const START_RX = /<pre><code>/;
+const START_RX = /<pre.*><code>/;
 const END = '</code></pre>';
 
 interface lineOptionsItem {

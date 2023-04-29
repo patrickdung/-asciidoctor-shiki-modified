@@ -29,7 +29,7 @@ runAsWorker(async (content, lang, opts) => {
   lineOptionsItems=[];
   //Leaving the html default results in nested pre/code elements, which is rendered as an unattractive box around the
   //highlighted code.
-  html = html.replace(START_RX, '');
-  html = html.slice(0, -END.length);
+  //html = html.replace(START_RX, '');
+  //html = html.slice(0, -END.length);
   return html;
 });

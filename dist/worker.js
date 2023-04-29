@@ -1,8 +1,6 @@
 // src/worker.ts
 var import_shiki = require("shiki");
 var import_synckit = require("synckit");
-var START_RX = /<pre.*><code>/;
-var END = "</code></pre>";
 (0, import_synckit.runAsWorker)(async (content, lang, opts) => {
   const highlighter = await (0, import_shiki.getHighlighter)({ "theme": "slack-dark" });
   let lineOptionsItems = [];
@@ -17,7 +15,5 @@ var END = "</code></pre>";
     html = await highlighter.codeToHtml(content, lang);
   }
   lineOptionsItems = [];
-  html = html.replace(START_RX, "");
-  html = html.slice(0, -END.length);
   return html;
 });

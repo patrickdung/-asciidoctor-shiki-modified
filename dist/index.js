@@ -22,18 +22,13 @@ __export(src_exports, {
   AsciidoctorShiki: () => AsciidoctorShiki
 });
 module.exports = __toCommonJS(src_exports);
-
-// node_modules/tsup/assets/cjs_shims.js
-var getImportMetaUrl = () => typeof document === "undefined" ? new URL("file:" + __filename).href : document.currentScript && document.currentScript.src || new URL("main.js", document.baseURI).href;
-var importMetaUrl = /* @__PURE__ */ getImportMetaUrl();
-
-// src/index.ts
 var import_module = require("module");
 var import_synckit = require("synckit");
-var require2 = (0, import_module.createRequire)(importMetaUrl);
+var import_meta = {};
+var require2 = (0, import_module.createRequire)(import_meta.url);
 var syncRun = (0, import_synckit.createSyncFn)(require2.resolve("./worker"));
 var AsciidoctorShiki = {
-  initialize(_name, _backend, { document: document2 }) {
+  initialize(_name, _backend, { document }) {
     this.super();
   },
   format(node, lang, opts) {

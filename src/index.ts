@@ -9,6 +9,7 @@ export const AsciidoctorShiki: Asciidoctor.SyntaxHighlighterFunctions = {
   initialize(_name, _backend, { document }) {
     this.super();
   },
+  /*
   format (node, lang, opts) {
     if (lang) {
       return `<pre class="shiki" style="background-color: #222222;">
@@ -17,6 +18,7 @@ export const AsciidoctorShiki: Asciidoctor.SyntaxHighlighterFunctions = {
       return `<pre class="shiki">${node.getContent()}</pre>`
     };
   },
+  */
   highlight(node, content, lang, opts) {
     // problem passing the 'node'
     return syncRun(content, lang, opts);

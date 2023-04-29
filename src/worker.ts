@@ -11,7 +11,7 @@ interface lineOptionsItem {
 
 runAsWorker(async (content, lang, opts) => {
   //const highlighter = await getHighlighter({'theme': 'slack-dark'});
-  const highlighter = await getHighlighter();
+  const highlighter = await getHighlighter({});
   let lineOptionsItems: lineOptionsItem[] = [];
   let html = '';
   if (opts.highlight_lines) {

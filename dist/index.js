@@ -33,8 +33,7 @@ var AsciidoctorShiki = {
   },
   format(node, lang, opts) {
     if (lang) {
-      return `<pre class="shiki" style="background-color: #222222;">
-        <code>${node.getContent()}</code></pre>`;
+      return `<pre><code>${node.getContent()}</code></pre>`;
     } else {
       return `<pre class="shiki">${node.getContent()}</pre>`;
     }

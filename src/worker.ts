@@ -1,7 +1,8 @@
 import { getHighlighter } from 'shiki';
 import { runAsWorker } from 'synckit';
 
-const START_RX = /<pre id="*" class="shiki.*" style="background-color: #[0-9a-f]*".*><code>/;
+//const START_RX = /<pre id="*" class="shiki.*" style="background-color: #[0-9a-f]*".*><code>/;
+const START_RX = /<pre><code>/;
 const END = '</code></pre>';
 
 interface lineOptionsItem {
@@ -10,8 +11,8 @@ interface lineOptionsItem {
 }
 
 runAsWorker(async (content, lang, opts) => {
-  //const highlighter = await getHighlighter({'theme': 'slack-dark'});
-  const highlighter = await getHighlighter({});
+  const highlighter = await getHighlighter({'theme': 'slack-dark'});
+  //const highlighter = await getHighlighter({});
   let lineOptionsItems: lineOptionsItem[] = [];
   let html = '';
   if (opts.highlight_lines) {

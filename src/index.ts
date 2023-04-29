@@ -14,7 +14,7 @@ export const AsciidoctorShiki: Asciidoctor.SyntaxHighlighterFunctions = {
       //return `<pre><code>${node.getContent()}</code></pre>`
       //return `<pre class="shiki" style="background-color: #222222;">
       //  <code ${lang ? ` data-language="${lang}"` : ""}>${node.getContent()}</code></pre>`;
-      return `<code class="shiki" ${lang ? ` data-language="${lang}"` : ""}>${node.getContent()}</code>`;
+      return `<code2 class="shiki" ${lang ? ` data-language="${lang}"` : ""}>${node.getContent()}</code2>`;
     } else {
       return `<pre class="shiki">${node.getContent()}</pre>`
     };

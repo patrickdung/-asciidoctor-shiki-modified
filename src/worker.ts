@@ -2,7 +2,8 @@ import { getHighlighter } from 'shiki';
 import { runAsWorker } from 'synckit';
 
 //const START_RX = /<pre id="*" class="shiki.*" style="background-color: #[0-9a-f]*".*><code>/;
-const START_RX = /<pre.*><code>/;
+//const START_RX = /<pre.*><code>/;
+const START_RX = /<pre class="shiki slack-dark" style="background-color: #[0-9a-f]*" tabindex="0"><code>/;
 const END = '</code></pre>';
 
 interface lineOptionsItem {
@@ -29,7 +30,7 @@ runAsWorker(async (content, lang, opts) => {
   lineOptionsItems=[];
   //Leaving the html default results in nested pre/code elements, which is rendered as an unattractive box around the
   //highlighted code.
-  //html = html.replace(START_RX, '');
-  //html = html.slice(0, -END.length);
+  html = html.replace(START_RX, '');
+  html = html.slice(0, -END.length);
   return html;
 });
